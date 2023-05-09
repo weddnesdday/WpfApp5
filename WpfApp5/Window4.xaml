@@ -1,0 +1,65 @@
+﻿<Window x:Class="WpfApp5.Window4"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d" Height="650" Width="1000" Background="Transparent" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" AllowsTransparency="True">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="57"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--Upper section-->
+        <Border Background="#623ed0"  Padding="30"  CornerRadius="25 25 0 0"/>
+
+        <Border Padding="20" Background="#ffffff" CornerRadius="0 0 25 25" MouseDown="Border_MouseDown" Margin="0,0,0,10" HorizontalAlignment="Center" Width="1000" Grid.Row="1">
+            <DataGrid x:Name ="BookGrid" Margin="8,-10,11,0" ItemsSource="{Binding Books}" Style="{StaticResource DataGrid}"  AutoGenerateColumns="False" Height="407" VerticalAlignment="Top" SelectionChanged="DataGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="id" Binding="{Binding Id}" Width="60"/>
+                    <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="150"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150"/>
+                    <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="80"/>
+                    <DataGridTextColumn Header="Publisher" Binding="{Binding Publisher}" Width="150"/>
+                    <DataGridTextColumn Header="Annotations" Binding="{Binding Annotations}" Width="205"/>
+                    <DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="150"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+        <Button Height="25" Width="25" Margin="950,18,25,15" Click="Close_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Bd" Background="Transparent">
+                        <Path x:Name="Pt" Data="M0,0 M0.2,0.2 L 0.8,0.8 M0.2,0.8 L0.8,0.2 M1,1"
+                      Stretch="Uniform" Stroke="Black" StrokeThickness="2"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Bd" Property="Background" Value="White"/>
+                            <Setter TargetName="Pt" Property="Stroke" Value="Black"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Grid Margin="183,442,169,25" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="167*"/>
+                <ColumnDefinition Width="147*"/>
+                <ColumnDefinition Width="164*"/>
+                <ColumnDefinition Width="170*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Return" Style="{StaticResource buttonMainGreen}" Width="150" Click="Button_Click_1" HorizontalAlignment="Center" Height="56" VerticalAlignment="Center" Grid.Column="1"/>
+            <Button Content="Edit" Style="{StaticResource buttonMainGreen}" Width="148" Click="Button_Click_5" HorizontalAlignment="Left" Margin="10,35,0,35" Grid.Column="2"/>
+
+            <Button Content="Exit" Style="{StaticResource buttonMainGreens}" Width="160" Click="Button_Click_3" HorizontalAlignment="Center" Height="56" VerticalAlignment="Center" Grid.Column="3"/>
+            <Button Content="Delete" Style="{StaticResource buttonMainGreen}" Width="150" Click="Button_Click_4" HorizontalAlignment="Left" Height="56" VerticalAlignment="Center" Margin="7,0,0,0"/>
+        </Grid>
+
+    </Grid>
+</Window>

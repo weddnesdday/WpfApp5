@@ -1,0 +1,56 @@
+﻿<Window x:Class="WpfApp5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d" Height="650" Width="1000" Background="Transparent" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" AllowsTransparency="True">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Left Section-->
+        <Border Background="#623ed0" Padding="30" CornerRadius="25 0 0 25">
+            <StackPanel VerticalAlignment="Center">
+                <Image Source="/Images/kitten.png" Height="221" Margin="-28,0,-29,0" HorizontalAlignment="Right" Width="397" RenderTransformOrigin="0.363,0.484"/>
+                <TextBlock Text="Let's login to your account" TextAlignment="Center" FontWeight="SemiBold" FontSize="28" Foreground="#ffffff" Height="44"/>
+                <TextBlock TextWrapping="Wrap" FontSize="20" TextAlignment="Center" Foreground="#ffffff" Margin="0 20 0 20" Text="it should only take couple of minutes to pair with your watch"/>
+            </StackPanel>
+        </Border>
+        <!--Input Section-->
+
+        <Border Grid.Column="1" Padding="20" Background="#ffffff" CornerRadius="0 25 25 0"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">
+            <Label Content="Login:" Width="163" Height="36" FontSize="16" Foreground="#363636" FontWeight="SemiBold"/>
+            <TextBox x:Name="login" Width="164" Height="40" Style="{StaticResource textboxLogin}"/>
+            <Label Content="Password:" Width="163" Height="36" FontSize="16" Foreground="#363636" FontWeight="SemiBold"/>
+            <PasswordBox x:Name="password" Width="164" Height="40" Style="{StaticResource textboxPassword}"/>
+            <Button x:Name="enter" Content="Enter" Width="165" Click="enter_Click" Foreground="#ffffff" FontWeight="SemiBold" Style="{StaticResource buttonMainGreen}" Height="39"/>
+            <Separator Opacity="0" Height="2"/>
+            <TextBlock Width="104">  
+            <Hyperlink Click="hyperlink_Click" FontWeight="SemiBold"> not registered yet?</Hyperlink>
+            </TextBlock>
+        </StackPanel>
+
+        <Button Height="25" Width="25" Grid.Column="1" Margin="550,20,25,605" Click="Close_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Bd" Background="Transparent">
+                        <Path x:Name="Pt" Data="M0,0 M0.2,0.2 L 0.8,0.8 M0.2,0.8 L0.8,0.2 M1,1"
+                      Stretch="Uniform" Stroke="Black" StrokeThickness="2"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Bd" Property="Background" Value="#623ed0"/>
+                            <Setter TargetName="Pt" Property="Stroke" Value="#ffffff"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+</Window>
